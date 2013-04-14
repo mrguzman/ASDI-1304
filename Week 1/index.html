@@ -2,9 +2,10 @@
 <html> 
 	<head> 
 	
-		<title>Sales Appointment</title> 
+		<title>Sales Appointment</title>
+		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+		<link rel="stylesheet" href="jqm/jquery.mobile-1.3.1.css" />
 		
 	</head>
 	 
@@ -20,16 +21,24 @@
 		
 			<!-- CONTENT -->
 			<div data-role="content">	
-				<p>Hello world</p>		
+				<ul data-role="listview" data-inset="true">
+					<li>
+						<a href="#form" data-transition="flip">
+							<img src="images/addcontact copy.png" id="image"/>
+							<h1>Start Here</h1>
+							<p>Track, organize, manage your leads, and make that sale!</p>
+						</a>
+					</li>
+				</ul>
 			</div>
 			
 			<!-- FOOTER Navbar -->
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#home" class="ui-btn-active ui-state-persist">Home</a></li>
-						<li><a href="#form">New Appointment</a></li>
-						<li><a href="#display">Display</a></li>
+						<li><a href="#home" class="ui-btn-active ui-state-persist" data-transition="flip">Home</a></li>
+						<li><a href="#form" data-transition="flip">New Appointment</a></li>
+						<li><a href="#display" data-transition="flip">Display</a></li>
 					</ul>
 				</div>
 			</div>
@@ -96,6 +105,17 @@
 						</select>
 					</div>
 					
+					<div data-role="fieldcontain">
+						<label for="comments">Comments:</label>
+						<textarea type="text" placeholder="Ener Notes" name="comments" id="comments"></textarea>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<p>
+						    <a href="#" data-role="button" data-mini="false" data-inline="true" data-icon="check" data-theme="b">Save Appointment</a>
+						    <a href="#" data-role="button" data-mini="true" data-inline="true">Cancel</a>
+						</p>
+					</div>
 					
 				</form>
 				
@@ -106,9 +126,9 @@
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="#form" class="ui-btn-active ui-state-persist">New Appointment</a></li>
-						<li><a href="#display">Display</a></li>
+						<li><a href="#home" data-transition="flip">Home</a></li>
+						<li><a href="#form" class="ui-btn-active ui-state-persist" data-transition="flip">New Appointment</a></li>
+						<li><a href="#display" data-transition="flip">Display</a></li>
 					</ul>
 				</div>
 			</div>
@@ -132,9 +152,9 @@
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="#form">New Appointment</a></li>
-						<li><a href="#display" class="ui-btn-active ui-state-persist">Display</a></li>
+						<li><a href="#home" data-transition="flip">Home</a></li>
+						<li><a href="#form" data-transition="flip">New Appointment</a></li>
+						<li><a href="#display" class="ui-btn-active ui-state-persist" data-transition="flip">Display</a></li>
 					</ul>
 				</div>
 			</div>
@@ -142,8 +162,8 @@
 		</div>
 		
 		
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+		<script src="jqm/jquery-1.9.1.js"></script>
+		<script src="jqm/jquery.mobile-1.3.1.js"></script>
 	
 	</body>
 
