@@ -57,25 +57,20 @@
 			<div data-role="content">	
 				
 				<form action="" id="apptForm">
-				
+									
 					<div data-role="fieldcontain">
-						<ul id="errors"></ul>
-						<p><i>*Required Field</i></p>
+						<label for="fName">First Name:</label>
+						<input type="text" name="fName" id="fName" placeholder="First Name" value="" data-clear-btn="true"/>	
 					</div>
 					
 					<div data-role="fieldcontain">
-						<label for="fName">*First Name:</label>
-						<input type="text" name="fName" id="fName" placeholder="First Name" value="" data-clear-btn="true">	
-					</div>
-					
-					<div data-role="fieldcontain">
-						<label for="lName">*Last Name:</label>
-						<input type="text" name="lName" id="lName" placeholder="Last Name" value="" data-clear-btn="true">	
+						<label for="lName">Last Name:</label>
+						<input type="text" name="lName" id="lName" placeholder="Last Name" value="" data-clear-btn="true"/>	
 					</div>
 
 					<div data-role="fieldcontain">
-						<label for="phoneNum">*Phone Number:</label>
-						<input type="text" name="phoneNum" id="phoneNum" placeholder="Phone Number" value="" data-clear-btn="true">	
+						<label for="phoneNum">Phone Number:</label>
+						<input type="text" name="phoneNum" id="phoneNum" placeholder="Phone Number" value="" data-clear-btn="true"/>	
 					</div>
 					
 					<div data-role="fieldcontain">
@@ -90,7 +85,7 @@
 					
 					<div data-role="fieldcontain">
 						<label for="date">*Appointment Date:</label>
-						<input type="date" name="date" id="date" value="">
+						<input type="date" name="date" id="date" value=""/>
 					</div>
 
 					<div data-role="fieldcontain">
@@ -116,7 +111,7 @@
 					
 					<div data-role="fieldcontain">
 						<p>
-						    <a href="#" data-role="button" data-mini="false" data-inline="true" data-icon="check" data-theme="b" id="saveButton">Save Appointment</a>
+						    <button type="submit" id="saveButton">Save Appointment</button>
 						    <a href="#" data-role="button" data-mini="true" data-inline="true">Cancel</a>
 						</p>
 					</div>

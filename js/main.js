@@ -21,12 +21,43 @@ $('#form').on('pageinit', function(){
 			
 			alert("Appointment Saved");
 			
-			console.log($("#saveButton").click(saveAppt));
+			
 			
 	}
 	
-	$("#saveButton").click(saveAppt);
+	//VALIDATE and Save.
+	$("#saveButton").click(function(){
+			if ($("input").val() == "") {
+				    alert("Fields are blank!");
+				    return false;
+			  }else{
+				  saveAppt();
+				  return false;
+			  }
+		})
+	
 
 	
+	//Retrieve LocalStorage and display
+	
+	
+	
+
+
+/*	$("#saveButton").click(function(e){
+		
+		e.preventDefault();
+		
+		var data = $("#apptForm").serializeArray();
+		
+		$.each(data, function(i, obj){
+			
+			localStorage.setItem(obj.name, obj.value);
+		});
+		
+		console.log(data);
+	});
+
+*/	
 		
 }); 
