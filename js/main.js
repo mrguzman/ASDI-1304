@@ -4,10 +4,12 @@
 $('#form').on('pageinit', function(){
 	
 	//SAVE DATA to LocalStorage.
-		function saveAppt(){
-	
-		var id = Math.floor(Math.random()*100000001);
-		
+		function saveAppt(key){
+		if(!key){
+			var id = Math.floor(Math.random()*100000001);
+		}else{
+			var id = key;
+		}
 		var item = {};
 			item.fName = ["First Name:", $("#fName").val()];
 			item.lName = ["Last Name:", $("#lName").val()];
