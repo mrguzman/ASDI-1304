@@ -12,15 +12,15 @@
 	<body> 
 	
 		<!-- PAGE -->
-		<section data-role="page" id="home">
+		<div data-role="page" id="home">
 		
 			<!-- HEADER -->
-			<header  data-role="header">
+			<div data-role="header">
 				<h1>Sales Appointment</h1>
-			</header>
+			</div>
 		
 			<!-- CONTENT -->
-			<article data-role="content">	
+			<div data-role="content">	
 				<ul data-role="listview" data-inset="true">
 					<li>
 						<a href="#form" data-transition="flip">
@@ -30,31 +30,31 @@
 						</a>
 					</li>
 				</ul>
-			</article>
+			</div>
 			
 			<!-- FOOTER Navbar -->
-			<footer data-role="footer" data-position="fixed">
-				<nav data-role="navbar">
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
 					<ul>
 						<li><a href="#home" class="ui-btn-active ui-state-persist" data-transition="flip">Home</a></li>
 						<li><a href="#form" data-transition="flip">New Appointment</a></li>
 						<li><a href="#display" data-transition="flip">Display</a></li>
 					</ul>
-				</nav>
-			</footer>
+				</div>
+			</div>
 		
-		</section>
+		</div>
 		
 		<!-- PAGE -->
-		<section data-role="page" id="form" data-add-back-btn="true">
+		<form data-role="page" id="form" data-add-back-btn="true">
 		
 			<!-- HEADER -->
-			<header data-role="header">
+			<div data-role="header">
 				<h1>Sales Appointment</h1>
-			</header>
+			</div>
 		
 			<!-- CONTENT -->
-			<article data-role="content">	
+			<div data-role="content">	
 				
 				<form action="" id="apptForm">
 									
@@ -119,50 +119,50 @@
 				</form>
 				
 						
-			</article>
+			</div>
 			
 			<!-- FOOTER Navbar -->
-			<footer data-role="footer" data-position="fixed">
-				<nav data-role="navbar">
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
 					<ul>
 						<li><a href="#home" data-transition="flip">Home</a></li>
 						<li><a href="#form" class="ui-btn-active ui-state-persist" data-transition="flip">New Appointment</a></li>
 						<li><a href="#display" data-transition="flip">Display</a></li>
 					</ul>
-				</nav>
-			</footer>
+				</div>
+			</div>
 		
-		</section>
+		</div>
 		
 		<!-- PAGE -->
-		<section data-role="page" id="display" data-add-back-btn="true">
+		<div data-role="page" id="display" data-add-back-btn="true">
 		
 			<!-- HEADER -->
-			<header data-role="header">
+			<div data-role="header">
 				<h1>Sales Appointment</h1>
-			</header>
+			</div>
 		
 			<!-- CONTENT -->
-			<article data-role="fieldcontain" id="content">	
+			<div data-role="fieldcontain" id="content">	
 				<p>Display All page</p>		
-			</article>
+			</div>
 			
 			<!-- FOOTER Navbar -->
-			<footer data-role="footer" data-position="fixed">
-				<nav data-role="navbar">
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
 					<ul>
 						<li><a href="#home" data-transition="flip">Home</a></li>
 						<li><a href="#form" data-transition="flip">New Appointment</a></li>
 						<li><a href="#display" class="ui-btn-active ui-state-persist" data-transition="flip">Display</a></li>
 					</ul>
-				</nav>
-			</footer>
+				</div>
+			</div>
 		
-		</section>
-				
+		</div>
+		
 		<script src="jqm/jquery-1.9.1.js"></script>
 		<script src="jqm/jquery.mobile-1.3.1.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="main.js"></script>
 	
 	</body>
 

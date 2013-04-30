@@ -59,25 +59,3 @@ $('#form').on('pageinit', function(){
 	
 });
 	
-
-$('#display').on("pageinit", function(){
-	
-
-
-	// Create elements, Retrieve LocalStorage and display
-	
-		
-	$("ul").appendTo("#content");
-	$("#display").css({display: "block"});
-		
-		//Loops through key in local storage.
-
-		for (var i=0, len=localStorage.length; i<len; i++){
-			var createLi = $('li').appendTo("ul");
-			var key = localStorage.key(i);
-			
-		}			
-
-
-		
-}); 
