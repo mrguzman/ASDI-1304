@@ -4,7 +4,7 @@
 // By Juan J Guzman
 
 
-$(document).ready(function(){
+$("#home").on("pageinit", function(){
 						
 
 	//Save info to local storage
@@ -17,13 +17,13 @@ $(document).ready(function(){
 		var editButton = $('<a href="#">Edit</a>');
 		editButton.key = key;
 		$(editButton).click(editLead);
-		linksLi.appendChild(editButton);
+		$(linksLi).append(editButton);
 	
 		
 		var deleteButton = $('<a href="#">Delete</a>');
 		deleteButton.key = key;
 		$(deleteButton).click(deleteLead);
-		linksLi.appendChild(deleteButton);
+		$(linksLi).append(deleteButton);
 		
 	}
 	
@@ -144,15 +144,17 @@ $(document).ready(function(){
 	
 	//DISPLAY saved data to user when "Display All Current Leads" link is clicked.
 	
-	$(".display").click(getData);
-	
-	
-	function getData(){
+	$(".display").on("click", function (){
 		if (localStorage.length === 0){
-			alert("No Appointments Currently Scheduled. Place Holders have been loaded.");
-			loadPlaceHolder();
+			var loadConfirm = confirm("No Appointments Currently Scheduled. Load Placeholders?");
+			if (loadConfirm){
+				loadPlaceHolder();
+				alert("Placeholders have been loaded");
+				}else{
+					alert("Placeholders have been cancelled");
+				}
 		}
-		var createDiv = $('<article class="items"></article>');		//Creates <article> element to dipslay data as a list item
+		var createDiv = $('<article class="items"></article>').appendTo(".content");		//Creates <article> element to dipslay data as a list item
 		$(".items").wrapInner('<ul class="appt" />');
 		//var createUl = $('<ul></ul>');
 		//createDiv.appendChild(createUl);
@@ -161,7 +163,7 @@ $(document).ready(function(){
 		for (var i=0, len=localStorage.length; i<len; i++){		//Loops through key in local storage.
 			var createLi = $('<li />');
 			var linksLi = $('<li />'); 
-			$('.appt').append(createLi);
+			$(".appt").append(createLi);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
@@ -178,7 +180,7 @@ $(document).ready(function(){
 			createLinks(localStorage.key(i), linksLi);
 		}
 
-	}
+	});
 	
 	
 	//Load Place holder if no data has been saved in local storage
@@ -199,12 +201,10 @@ $(document).ready(function(){
 		if(localStorage.length === 0){
 			alert("No Appointments Are Currently Scheduled");
 		}else {
-			var confirm = confirm("Are you sure you wish to DELETE ALL appointments?");
-			if(confirm){
+			var deleteConfirm = confirm("Are you sure you wish to DELETE ALL appointments?");
+			if(deleteConfirm){
 				localStorage.clear();
-				alert("All Appointments have been deleted");
-				window.location.reload();
-				return false;
+				alert("All appointments have been deleted.")
 				}else{
 					alert("Delete Cancelled");
 					}
