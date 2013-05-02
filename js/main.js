@@ -1,7 +1,7 @@
 //ASD 1304
 //Juan J Guzman
 
-$('#form').on('pageinit', function(){
+$(document).ready(function(){
 	
 	//SAVE DATA to LocalStorage.
 		function saveAppt(key){
@@ -37,25 +37,27 @@ $('#form').on('pageinit', function(){
 				  return false;
 			  }
 		})
+		
+		
+	//DISPLAY all localStorage data to user
 	
-/*	$("#saveButton").click(function(e){
 		
-		e.preventDefault();
+	$(".display").find("a").click(function(){
+		if(localStorage.length === 0){
+			alert("No Appointments Currently Saved");
+			return false;
+		}
 		
-		var data = $("#apptForm").serializeArray();
 		
-		$.each(data, function(i, obj){
-			
-			localStorage.setItem(obj.name, obj.value);
-		});
 		
-		console.log(data);
-	});
-
-*/	
+	})
+	
+		
 
 
 	
 	
 });
-	
+
+
+

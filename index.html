@@ -22,7 +22,7 @@
 			<!-- CONTENT -->
 			<article data-role="content">	
 				<ul data-role="listview" data-inset="true">
-					<li>
+					<li id="start">
 						<a href="#form" data-transition="flip">
 							<img src="images/addcontact copy.png" id="image"/>
 							<h1>Start Here</h1>
@@ -30,6 +30,19 @@
 						</a>
 					</li>
 				</ul>
+				
+				<ul data-role="listview" data-inset="true">
+					<li>
+						<a href="#display" class="display" data-transition="flip">
+							<img src="images/Calendar-icon.png" id="image"/>
+							<h1>View Appointments</h1>
+							<p>View upcoming scheduled appointments</p>
+						</a>
+					</li>
+				</ul>
+				
+				<button class="deleteAll">Delete All Saved Appointments</button>
+				
 			</article>
 			
 			<!-- FOOTER Navbar -->
@@ -38,7 +51,7 @@
 					<ul>
 						<li><a href="#home" class="ui-btn-active ui-state-persist" data-transition="flip">Home</a></li>
 						<li><a href="#form" data-transition="flip">New Appointment</a></li>
-						<li><a href="#display" data-transition="flip">Display</a></li>
+						<li><a href="#display" class="display" data-transition="flip">Display</a></li>
 					</ul>
 				</nav>
 			</footer>
@@ -126,8 +139,8 @@
 				<nav data-role="navbar">
 					<ul>
 						<li><a href="#home" data-transition="flip">Home</a></li>
-						<li><a href="#form" class="ui-btn-active ui-state-persist" data-transition="flip">New Appointment</a></li>
-						<li><a href="#display" data-transition="flip">Display</a></li>
+						<li><a href="#form"  class="ui-btn-active ui-state-persist" data-transition="flip">New Appointment</a></li>
+						<li><a href="#display" class="display" data-transition="flip">Display</a></li>
 					</ul>
 				</nav>
 			</footer>
@@ -135,7 +148,7 @@
 		</section>
 		
 		<!-- PAGE -->
-		<section data-role="page" id="display" data-add-back-btn="true">
+		<section data-role="page" id="displayAll" data-add-back-btn="true">
 		
 			<!-- HEADER -->
 			<header data-role="header">
@@ -143,7 +156,7 @@
 			</header>
 		
 			<!-- CONTENT -->
-			<article data-role="fieldcontain" id="content">	
+			<article data-role="fieldcontain" class="content">	
 				<p>Display All page</p>		
 			</article>
 			
@@ -152,8 +165,8 @@
 				<nav data-role="navbar">
 					<ul>
 						<li><a href="#home" data-transition="flip">Home</a></li>
-						<li><a href="#form" data-transition="flip">New Appointment</a></li>
-						<li><a href="#display" class="ui-btn-active ui-state-persist" data-transition="flip">Display</a></li>
+						<li><a href="#form"  data-transition="flip">New Appointment</a></li>
+						<li><a href="#display" class="display" class="ui-btn-active ui-state-persist" data-transition="flip">Display</a></li>
 					</ul>
 				</nav>
 			</footer>
@@ -162,7 +175,7 @@
 				
 		<script src="jqm/jquery-1.9.1.js"></script>
 		<script src="jqm/jquery.mobile-1.3.1.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/main2.js"></script>
 	
 	</body>
 
