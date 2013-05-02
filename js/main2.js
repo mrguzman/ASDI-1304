@@ -9,7 +9,73 @@ $("#home").on("pageinit", function(){
 
 	//Save info to local storage
 	
-	$('saveButton').click(required);
+	$('saveButton').on("click", function(){
+	//VALIDATE required information before allowing the user to proceed...
+	
+		function required(r){
+			var checkFname = $('#fName');
+			var checkLname = $('#lName');
+			var checkNum = $('#phoneNum');
+			
+			flagMessage.innerHTML = "";
+			checkFname.style.border = "1px solid black";
+			checkLname.style.border = "1px solid black";
+			checkNum.style.border = "1px solid black";
+			
+			var flagArray = [];
+			if (checkFname.value === ""){
+				var fNameFlag = "Please Enter A First Name";
+				checkFname.style.border ="1px solid red";
+				flagArray.push(fNameFlag);
+			}
+				if (checkLname.value === ""){
+				var lNameFlag = "Please Enter A Last Name";
+				checkLname.style.border ="1px solid red";
+				flagArray.push(lNameFlag);
+			}
+				if (checkNum.value === ""){
+				var numFlag = "Please Enter A Contact Number";
+				checkNum.style.border ="1px solid red";
+				flagArray.push(numFlag);
+			}
+			if (flagArray.length >=  1){
+				for (var i=0, j=flagArray.length; i < j; i++){
+					var text = document.createElement('li');
+					text.innerHTML = flagArray[i];
+					flagMessage.appendChild(text);
+				}
+				r.preventDefault();
+				return false;
+			}else{
+				saveAppt(this.key);
+			}
+			
+		}
+	});
+
+	//SAVE DATA to LocalStorage.
+		function saveAppt(key){
+		if(!key){
+			var id = Math.floor(Math.random()*100000001);
+		}else{
+			var id = key;
+		}
+		var item = {};
+			item.fName = ["First Name:", $("#fName").val()];
+			item.lName = ["Last Name:", $("#lName").val()];
+			item.phoneNum = ["Phone Number:", $("#phoneNum").val()];
+			item.phoneType = ["Contact Type:", $("#phoneType").val()];
+			item.date = ["Appointment Date:", $("#date").val()];
+			item.time = ["Preferred Time:", $("#time").val()];
+			item.interest = ["Interest Level:", $("#interest").val()];
+			item.comments = ["Comments:", $("#comments").val()];
+			localStorage.setItem(id, JSON.stringify(item));
+			
+			alert("Appointment Saved");
+			
+			
+			
+	}
 	
 	//Dynamically create individual button/links to edit and delete each item.
 	
@@ -43,7 +109,7 @@ $("#home").on("pageinit", function(){
 		$('#comments').value = item.comments[1];
 	
 		
-		$("#saveButton").click(saveLead);
+		$("#saveButton").click(saveAppt);
 		
 		
 		$('#saveButton').value = "Edit Lead";
@@ -69,77 +135,6 @@ $("#home").on("pageinit", function(){
 	
 	
 	
-	//VALIDATE required information before allowing the user to proceed...
-	
-	function required(r){
-		var checkFname = $('#fName');
-		var checkLname = $('#lName');
-		var checkNum = $('#phoneNum');
-		
-		flagMessage.innerHTML = "";
-		checkFname.style.border = "1px solid black";
-		checkLname.style.border = "1px solid black";
-		checkNum.style.border = "1px solid black";
-		
-		var flagArray = [];
-		if (checkFname.value === ""){
-			var fNameFlag = "Please Enter A First Name";
-			checkFname.style.border ="1px solid red";
-			flagArray.push(fNameFlag);
-		}
-			if (checkLname.value === ""){
-			var lNameFlag = "Please Enter A Last Name";
-			checkLname.style.border ="1px solid red";
-			flagArray.push(lNameFlag);
-		}
-			if (checkNum.value === ""){
-			var numFlag = "Please Enter A Contact Number";
-			checkNum.style.border ="1px solid red";
-			flagArray.push(numFlag);
-		}
-		if (flagArray.length >=  1){
-			for (var i=0, j=flagArray.length; i < j; i++){
-				var text = document.createElement('li');
-				text.innerHTML = flagArray[i];
-				flagMessage.appendChild(text);
-			}
-			r.preventDefault();
-			return false;
-		}else{
-			saveLead(this.key);
-		}
-		
-	}
-	
-	 
-	
-	
-
-	//SAVE DATA to LocalStorage.
-		function saveAppt(key){
-		if(!key){
-			var id = Math.floor(Math.random()*100000001);
-		}else{
-			var id = key;
-		}
-		var item = {};
-			item.fName = ["First Name:", $("#fName").val()];
-			item.lName = ["Last Name:", $("#lName").val()];
-			item.phoneNum = ["Phone Number:", $("#phoneNum").val()];
-			item.phoneType = ["Contact Type:", $("#phoneType").val()];
-			item.date = ["Appointment Date:", $("#date").val()];
-			item.time = ["Preferred Time:", $("#time").val()];
-			item.interest = ["Interest Level:", $("#interest").val()];
-			item.comments = ["Comments:", $("#comments").val()];
-			localStorage.setItem(id, JSON.stringify(item));
-			
-			alert("Appointment Saved");
-			
-			
-			
-	}
-	
-	
 	
 	
 	//DISPLAY saved data to user when "Display All Current Leads" link is clicked.
@@ -154,29 +149,28 @@ $("#home").on("pageinit", function(){
 					alert("Placeholders have been cancelled");
 				}
 		}
-		var createDiv = $('<article class="items"></article>').appendTo(".content");		//Creates <article> element to dipslay data as a list item
+		var createDiv = $('<article class="items" />').appendTo(".content");		//Creates <article> element to dipslay data as a list item
 		$(".items").wrapInner('<ul class="appt" />');
 		//var createUl = $('<ul></ul>');
 		//createDiv.appendChild(createUl);
 		//document.body.appendChild(createDiv);
 		//$('items').style.display = "block";
 		for (var i=0, len=localStorage.length; i<len; i++){		//Loops through key in local storage.
-			var createLi = $('<li />');
+			var createLi = $('<li class="keyList" />');
 			var linksLi = $('<li />'); 
 			$(".appt").append(createLi);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
-			/*var makeSubList = document.createElement('ul');
-			createLi.appendChild(makeSubList);
-			loadImage(obj.leadSource[1], makeSubList);
+			var makeSubList = $('<ul class="savedData"/>');
+			$(createLi).append(makeSubList);
 			for (var n in obj){
 				var makeSubLi = $('<li />');
-				makeSubList.appendChild(makeSubLi);
+				$(makeSubList).append(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubLi.innerHTML = optSubText;
-				makeSubList.appendChild(linksLi);
-			}*/
+				$(makeSubLi).wrapInner(optSubText);
+				$(makeSubList).append(linksLi);
+			}
 			createLinks(localStorage.key(i), linksLi);
 		}
 
